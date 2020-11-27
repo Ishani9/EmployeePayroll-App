@@ -1,0 +1,242 @@
+/* Employee Payroll App  */
+body {
+    margin: 10;
+    height: 100%;
+}
+
+.header {
+    padding: 15px 0;
+    background-color: #ffffff;
+}
+
+/* we can use class name either as .header-content or .header */
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid green;
+}
+
+.logo-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: 0px solid green;
+    width: 80%;
+}
+
+.logo-content-img {
+    border: solid 0px #42515f;
+    width: 5%;
+}
+
+.emp-text {
+    text-align: left;
+    font: normal normal bold 22px/25px Montserrat;
+    letter-spacing: 0px;
+    color: #82A70C;
+    text-transform: capitalize;
+}
+
+.emp-payroll {
+    color: #42515f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* UC2 */
+
+.form-content {
+    min-height: calc(100% - 80px);
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid green;
+}
+
+.form {
+    width: 75%;
+    padding: 44px 60px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 3px 3px 6px #1a81ca;
+    border: 1px solid #F5F5F5;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.form-head {
+    text-align: left;
+    font: normal normal bold 28px/37px Roboto;
+    letter-spacing: 0px;
+    color: #42515F;
+    text-transform: capitalize;
+    opacity: 1;
+    padding-bottom: 20px;
+}
+
+.row-content, .row-content-notes {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+    border: 0px solid green;
+}
+
+.row-content-notes{
+    border: 0.5px solid green;
+}
+
+.label {
+    min-width: 140px;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.text {
+    font-size: 16px;
+    color: #42515f;
+    opacity: 1;
+    font-family: Roboto;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 0px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+/* UC3 */
+.profile-radio-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-radio-content>label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile {
+    width: 50px;
+    border-radius: 50%;
+    margin-left: 12px;
+    border: 2px solid pink;
+}
+
+/* UC5 */
+select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font: normal normal normal 16px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    background-color: transparent;
+}
+
+/* UC6 and 7*/
+.button-content {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button {
+    font-size: 20px;
+    font-family: Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    opacity: 1;
+    background: transparent;
+    border: none;
+    font-weight: 400;
+    min-width: 140px;
+    padding: 7px 7px;
+    border: 1px solid #707070;
+    cursor: pointer;
+}
+
+.submitButton {
+    background-color: #f5f5f5;
+    border: 1px solid #969696;
+    border-radius: 5px;
+    opacity: 1;
+    margin-right: 30px;
+}
+
+.cancelButton {
+    text-decoration: none;
+    text-align: center;
+    background-color: #f5f5f5;
+    border: 1px solid #969696;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+.resetButton{
+    background-color: #f5f5f5;
+    border: 1px solid #969696;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+@media only screen and (max-width: 960px){
+    .cancelButton{
+        margin-left: 0px;
+    }
+    .form{
+        width: 85%;
+        padding: 44px 20px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .form{
+        margin-top: 10px;
+    }
+    .row-content{
+        flex-direction: column;
+    }
+    .uploadButton{
+        justify-content: flex-start;
+    }
+    .profile-radio-content{
+        flex-flow: wrap;
+    }
+    .submit-reset{
+        width: 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .submitButton{
+        margin: 0;
+    }
+    .button-content{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+}
+
+/* JS UC 2*/
+.text-error{
+    margin-left: 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+}

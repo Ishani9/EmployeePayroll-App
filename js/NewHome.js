@@ -39,33 +39,14 @@ const getDeptHtml = (deptList) => {
     return deptHtml;
 }
 
-/*
-const createEmployeePayrollJSON = () => {
-    let empPayrollListLocal = [{
-        _name: 'Ishani M',
-        _gender: 'Female',
-        _department: [
-            'Engineer',
-            'Finance'
-        ],
-        _salary: '500000',
-        _startDate: '21 Nov 2019',
-        _note: '',
-        _id: new Date().getTime(),
-        _profilePic: '../assets/Ellipse -1.png'
-    },
-    {
-        _name: 'Kia',
-        _gender: 'female',
-        _department: [
-            'Sales'
-        ],
-        _salary: '400000',
-        _startDate: '22 Oct 2018',
-        _note: '',
-        _id: new Date().getTime() + 1,
-        _profilePic: '../assets/Ellipse -4.png'
-    }
-    ];
-    return empPayrollListLocal;
-}*/
+const remove = (node) => {
+    let empPayrollData = empPayrollList.find(employee => node.id == employee._id);
+    if(!empPayrollData) return;
+    const index = empPayrollList.map(employee => employee._id)
+                                .indexOf(empPayrollData._id);
+    empPayrollList.splice(index,1);
+    document.querySelector(".emp-count").textContent = empPayrollList.length;
+    localStorage.setItem("EmployeePayrollList",JSON.stringify(empPayrollList));
+    createInnerHtml();
+  }
+

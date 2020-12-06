@@ -44,9 +44,11 @@ class EmployeePayrollData {
 
     get startDate() { return this._startDate; }
     set startDate(startDate) {
-        if (startDate.toLocaleDateString <= new Date().toLocaleDateString)
-            this._startDate = startDate;
-        else throw "Start date is incorrect";
+        let now = new Date();
+        if (startDate > now) throw 'Start Date is in future Date!';
+        var diff = Math.abs(now.getTime() - startDate.getTime());
+        if (diff / (1000 * 60 * 60 * 24) > 30) throw 'Start Date is beyond 30 days!';
+        this._startDate = startDate;
     }
 
     //Method
@@ -60,24 +62,3 @@ class EmployeePayrollData {
             + ", Notes : " + this.notes + ", Start Date : " + empDate;
     }
 }
-empPayrollData = new EmployeePayrollData();
-empPayrollData.id = 1;
-empPayrollData.name = 'Drew A';
-empPayrollData.gender = 'Male';
-empPayrollData.profilePic = '../assets/Ellipse -1.png';
-empPayrollData.department = 'HR';
-empPayrollData.salary = 500000.00;
-empPayrollData.notes = 'This is new 1st note';
-empPayrollData.startDate = new Date(2018, 11, 24);
-console.log(empPayrollData.toString());
-
-empPayrollData = new EmployeePayrollData();
-empPayrollData.id = 2;
-empPayrollData.name = 'Dream U';
-empPayrollData.gender = 'Male';
-empPayrollData.profilePic = '../assets/Ellipse -3.png';
-empPayrollData.department = 'Finance';
-empPayrollData.salary = 500000.00;
-empPayrollData.notes = 'This is new 2nd note';
-empPayrollData.startDate = new Date();
-console.log(empPayrollData.toString());

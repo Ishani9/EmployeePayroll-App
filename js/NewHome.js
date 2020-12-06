@@ -39,21 +39,25 @@ const getDeptHtml = (deptList) => {
     return deptHtml;
 }
 
-const remove = (node) => {
-    let empPayrollData = empPayrollList.find(employee => node.id == employee._id);
-    if(!empPayrollData) return;
-    const index = empPayrollList.map(employee => employee._id)
-                                .indexOf(empPayrollData._id);
-    empPayrollList.splice(index,1);
-    document.querySelector(".emp-count").textContent = empPayrollList.length;
-    localStorage.setItem("EmployeePayrollList",JSON.stringify(empPayrollList));
+  const remove=(node)=>{
+    let empPayrollData=empPayrollList.find(empData => empData._id==node._id);
+    if (!empPayrollData) return;
+    const index=empPayrollList
+                .map(empData =>empData._id)
+                .indexOf(empPayrollData._id);
+    empPayrollList.splice(index, 1);
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+    document.querySelector('.emp-count').textContent=empPayrollList.length;
+    if (empPayrollList.length == 0) {
+        location.reload();
+    }
     createInnerHtml();
-  }
+}
 
   const update = (node) => {
-    let empPayrollData = empPayrollList.find(employee => node.id == employee._id);
-    if(!empPayrollData) return;
-    localStorage.setItem("editEmp",JSON.stringify(empPayrollData));
-    window.location.replace(site_properties.add_emp_payroll_page);
-  }
+    let empPayrollData = empPayrollList.find(empData => empData._id == node.id);
+    if (!empPayrollData) return;
+    localStorage.setItem('editEmp', JSON.stringify(empPayrollData));
+    window.location.replace(SiteProperties.add_emp_payroll_page);
+}
 
